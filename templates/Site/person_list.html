@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 id="title">Publishers</h2>
+    <p style="margin: 0.4em;">
+    <a href="{% url socialauth_begin 'vkontakte-oauth2' %}">Enter VK</a>
+</p>
+<ul>
+    {% for publisher in object_list %}
+        <li><a href="{% url 'person_detail' pk=publisher.pk %}">{{ publisher.first_name }}</a> |||||| {{ publisher.last_name }}</li>
+    {% endfor %}
+</ul>
+{%  endblock %}
